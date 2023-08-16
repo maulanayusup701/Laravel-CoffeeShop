@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CategoryProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +22,14 @@ Route::middleware(['guest'])->group(function () {
         Route::get('/login', 'login')->name('login');
         Route::post('/loginStore', 'store');
     });
+});
+
+Route::middleware(['IsManager'])->group(function () {
+    Route::controller(ManagerController::class)->group(function () {
+        Route::get('/dashboard/manager', 'index');
+        Route::post('/dashboard/manager/logout', 'logout')->name('manager-logout');
+        Route::get('/dashboard/manager/activity', 'activity')->name('manager-activity');
+    });
+    Route::resource('/dashboard/manager/categoryProduct', CategoryProductController::class);
+    Route::resource('/dashboard/manager/products', ProductsController::class);
 });
