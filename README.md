@@ -1,42 +1,47 @@
-deskripsi :
+Deskripsi :
+
 Dalam mengelola sebuah restoran, penting untuk memiliki sistem yang dapat membantu setiap orang di dalamnya. Aplikasi pengelolaan restoran ini dirancang untuk memfasilitasi tugas-tugas sehari-hari dari manajer, kasir, dan admin tanpa formalitas yang rumit.
 Aplikasi ini berfungsi sebagai alat bantu dalam mengelola aktivitas restoran, mengintegrasikan peran-peran yang berbeda dalam lingkungan yang santai dan mudah digunakan.
-Kasir:
 
-Tugas: Mengurus pesanan dan pembayaran.
-Fitur: Memasukkan pesanan, melihat daftar menu, mengatur status pesanan, mencetak struk pembayaran.
-Kenyamanan: Antarmuka sederhana untuk melayani pelanggan dengan cepat dan akurat.
-Manajer:
+Teknologi yang digunakan:
 
-Tugas: Mengelola menu, memonitor transaksi, menghasilkan laporan.
-Fitur: Menambah dan mengedit menu, melihat catatan transaksi, memfilter transaksi dan laporan berdasarkan waktu atau pegawai.
-Kenyamanan: Akses cepat ke informasi kunci untuk membuat keputusan yang tepat.
-Admin:
+- Laravel 10
+- mySQL
+- Bootstrap 5.2.x
+- Bootstrap Icons 1.10.0
+- Bootstrap template mazer https://zuramai.github.io/mazer/
 
-Tugas: Mengelola peran pengguna, memantau aktivitas.
-Fitur: Menambah dan mengatur peran, melihat log aktivitas pengguna.
-Kenyamanan: Pengelolaan peran dan pemantauan aktivitas dengan mudah.
-Keunggulan Aplikasi:
+Prasyarat:
 
-Sederhana dan Mudah Digunakan:
+- Git https://git-scm.com/
+- PHP ^8.1, Mysql
+- Composer https://getcomposer.org/
+- Node JS 20.5.0 https://nodejs.org/en/download/current
 
-Desain antarmuka yang intuitif untuk penggunaan tanpa pelatihan khusus.
-Efisiensi Kerja:
+Cara Install Project:
 
-Mengurangi kesalahan dalam pesanan dan pembayaran.
-Transaksi dan laporan dapat diakses dengan cepat.
-Keterbukaan Informasi:
+- Download atau clone project => $git clone https://github.com/maulanayusup701/Laravel-CoffeeShop.git
+- Buka folder project dan buka gitbash
+- Install dependency => $composer install & $npm install
+- Setup environt variabel dengan mengcopy file .env => $cp .env.example .env
+- Buka file .env kemudian isi DB_DATABASE dengan nama db_coffeeShop
+- Buat DB db_cofeeShop di mysql
+- Generate APP_KEY => $php artisan key:generate
+- Lakukan migrate dan seed => $php artisan migrate --seed
 
-Semua peran dapat melihat data yang relevan dengan tugas mereka.
-Manajer dan admin dapat memantau aktivitas secara real-time.
-Pengembangan Tidak Formal:
+Akun Admin :
 
-Penggunaan metode pengembangan yang adaptif untuk fleksibilitas dalam menghadapi perubahan kebutuhan.
-Dampak dan Kesimpulan:
+1. Position Manager
 
-Aplikasi ini memberikan solusi praktis untuk mengelola restoran tanpa perlu pemahaman teknis yang mendalam. Dengan fokus pada kebutuhan sehari-hari dari kasir, manajer, dan admin, aplikasi ini berpotensi untuk meningkatkan efisiensi, transparansi, dan kolaborasi di dalam restoran.
+- Username = manager
+- Password = password
 
+2. Position Manager
 
+- Username = admin
+- Password = password
 
+3. Position Cashier
 
-
+- Username = cashier
+- Password = password
