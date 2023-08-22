@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -10,6 +11,11 @@ class Transaction extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function getTransactionToDay()
     {
@@ -57,5 +63,29 @@ class Transaction extends Model
         $totalTransactionsThisMonth = Transaction::whereBetween('date_transaction', [$startOfMonth, $endOfMonth])->count();
 
         return $totalTransactionsThisMonth;
+    }
+
+    public function getTableTransactionToday()
+    {
+        $today = now()->format('Y-m-d');
+        return Transaction::whereDate('date_transaction', $today)
+            ->latest()
+            ->paginate(15);
+    }
+
+    public function getTableTransactionThisMonth()
+    {
+        $startOfMonth = now()->startOfMonth();
+        $endOfMonth = now()->endOfMonth();
+        return Transaction::whereBetween('date_transaction', [$startOfMonth, $endOfMonth])
+            ->latest()
+            ->paginate(15);
+    }
+    public function getFilteredTransactions($startDate, $endDate)
+    {
+        return Transaction::with('user')
+            ->whereBetween('date_transaction', [$startDate, $endDate])
+            ->latest()
+            ->paginate(15);
     }
 }

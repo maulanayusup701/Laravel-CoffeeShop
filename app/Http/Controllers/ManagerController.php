@@ -52,4 +52,71 @@ class ManagerController extends Controller
             'activityHistories' => ActivityHistory::latest()->paginate(15),
         ]);
     }
+
+    public function transactionHistory()
+    {
+        return view('dashboard.manager.transactionHistory', [
+            'title' => 'Transaction History',
+            'transactions' => Transaction::with('user')
+                ->latest()
+                ->paginate(15),
+        ]);
+    }
+
+    public function transactionSearch(Request $request)
+    {
+        $search = $request->input('search');
+        $query = Transaction::with('user')->latest();
+
+        if ($search !== null) {
+            $query->whereHas('user', function ($userQuery) use ($search) {
+                $userQuery->whereHas('position', function ($positionQuery) use ($search) {
+                    $positionQuery->where('position_name', 'like', '%' . $search . '%');
+                });
+            });
+        }
+
+        $transactions = $query->paginate(15);
+
+        return view('dashboard.manager.transactionHistory', [
+            'title' => 'Transaction History',
+            'transactions' => $transactions,
+            'search' => $search,
+        ]);
+    }
+    public function transactionFilter(Request $request)
+    {
+        $filter = $request->input('filter');
+
+        $transaction = new Transaction();
+
+        if ($filter === 'all' || $filter === null) {
+            $transactions = Transaction::with('user')
+                ->latest()
+                ->paginate(15);
+        } elseif ($filter === 'daily') {
+            $transactions = $transaction->getTableTransactionToday();
+        } elseif ($filter === 'monthly') {
+            $transactions = $transaction->getTableTransactionThisMonth();
+        }
+
+        return view('dashboard.manager.transactionHistory', [
+            'title' => 'Transaction History',
+            'transactions' => $transactions,
+        ]);
+    }
+
+    public function transactionFilterDate(Request $request)
+    {
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        $transaction = new Transaction();
+        $filteredTransactions = $transaction->getFilteredTransactions($startDate, $endDate);
+
+        return view('dashboard.manager.transactionHistory', [
+            'title' => 'Transaction History',
+            'transactions' => $filteredTransactions,
+        ]);
+    }
 }

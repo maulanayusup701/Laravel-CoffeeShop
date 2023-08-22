@@ -72,6 +72,13 @@
                                 </li>
                             </ul>
                         </li>
+                        <li
+                            class="sidebar-item {{ Request::is('dashboard/manager/transactionHistory*') ? 'active' : '' }}">
+                            <a href=/dashboard/manager/transactionHistory class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Transaction History</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item {{ Request::is('dashboard/manager/activity') ? 'active' : '' }}">
                             <a href="/dashboard/manager/activity" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-medical-fill"></i>

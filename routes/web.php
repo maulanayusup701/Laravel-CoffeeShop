@@ -29,6 +29,10 @@ Route::middleware(['IsManager'])->group(function () {
         Route::get('/dashboard/manager', 'index');
         Route::post('/dashboard/manager/logout', 'logout')->name('manager-logout');
         Route::get('/dashboard/manager/activity', 'activity')->name('manager-activity');
+        Route::get('/dashboard/manager/transactionHistory', 'transactionHistory')->name('manager-transactionHistory');
+        Route::get('/dashboard/manager/transactionHistorySearch', 'transactionSearch')->name('manager-transactionSearch');
+        Route::get('/dashboard/manager/transactionHistoryFilter', 'transactionFilter')->name('manager-transactionFilter');
+        Route::get('/dashboard/manager/transactionHistoryFilterDate', 'transactionFilterDate')->name('manager-transactionFilterDate');
     });
     Route::resource('/dashboard/manager/categoryProduct', CategoryProductController::class);
     Route::resource('/dashboard/manager/products', ProductsController::class);
