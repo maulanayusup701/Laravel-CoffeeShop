@@ -22,15 +22,23 @@
                                     @endif
                                     <div>
                                         <div class="container mt-4">
-                                            <div class="row justify-content-center">
+                                            <div class="row d-flex align-items-center">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <input wire:model="search" type="text" class="form-control"
-                                                            placeholder="Search Product">
-                                                    </div>
+                                                    <form action="{{ route('cashier-searchProduct') }}" method="get"
+                                                        class="d-flex">
+                                                        <div class="input-group gap-4">
+                                                            @csrf
+                                                            <input name="search" id="search" type="text"
+                                                                class="form-control" placeholder="Search Product">
+                                                            <div class="input-group-append">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Search</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-4">
                                                 @foreach ($products as $product)
                                                     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3 mb-4">
                                                         <div class="card h-80">

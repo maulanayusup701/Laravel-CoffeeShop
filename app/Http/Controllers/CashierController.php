@@ -20,6 +20,16 @@ class CashierController extends Controller
         ]);
     }
 
+    public function searchProduct(Request $request)
+    {
+        $search = request('search');
+        $products = Product::where('product_name', 'like', '%' . $search . '%')->paginate(8);
+        return view('dashboard.cashier.index', [
+            'title' => "Products",
+            'products' => $products,
+        ]);
+    }
+
     public function cart()
     {
         $cart = session()->get('cart');
