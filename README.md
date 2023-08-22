@@ -36,7 +36,7 @@ Akun Admin :
 - Username = manager
 - Password = password
 
-2. Position Manager
+1. Position Admin
 
 - Username = admin
 - Password = password
