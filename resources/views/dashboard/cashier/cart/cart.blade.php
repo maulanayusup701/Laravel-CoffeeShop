@@ -70,10 +70,45 @@
                                                 <th colspan="5" class="text-end">Grand Total :</th>
                                                 <th>Rp {{ number_format($grandtotal, 2, ',', '.') }}</th>
                                                 <th>
-                                                    <a href="{{ route('cashier-addTransaction') }}"
-                                                        class="btn btn-sm btn-success">Checkout</a>
+                                                    <button type="button" class="btn btn-primary btn-sm"
+                                                        data-bs-toggle="modal" data-bs-target="#confirmCheckout">
+                                                        Checkout
+                                                    </button>
                                                 </th>
                                             </tr>
+                                            <!--primary theme Modal -->
+                                            <div class="modal fade text-left" id="confirmCheckout" tabindex="-1"
+                                                role="dialog" aria-labelledby="myModalLabel160" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-primary">
+                                                            <h5 class="modal-title white" id="myModalLabel160">
+                                                                Confirm Checkout
+                                                            </h5>
+                                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p class="fw-normal">Are You Sure Want To
+                                                                Checkout
+                                                                ?
+                                                            </p>
+                                                            <p class="fw-bold text-center h4 py-4">
+                                                                Rp {{ number_format($grandtotal, 2, ',', '.') }}
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer align-items-center">
+                                                            <a href="{{ route('cashier-addTransaction') }}"
+                                                                class="btn btn btn-primary">
+                                                                Checkout
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </tbody>
                                     @endif
                                 </table>
@@ -84,4 +119,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection

@@ -61,8 +61,14 @@
                         </li>
                         <li class="sidebar-item {{ Request::is('dashboard/cashier/cart') ? 'active' : '' }}">
                             <a href="/dashboard/cashier/cart" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-basket3-fill"></i>
                                 <span>Cart</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ Request::is('dashboard/cashier/myTransaction') ? 'active' : '' }}">
+                            <a href="/dashboard/cashier/myTransaction" class='sidebar-link'>
+                                <i class="bi bi-wallet-fill"></i>
+                                <span>My Transaction</span>
                             </a>
                         </li>
                     </ul>

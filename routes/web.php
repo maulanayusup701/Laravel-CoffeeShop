@@ -31,5 +31,7 @@ Route::middleware(['IsCashier'])->group(function () {
         Route::get('/dashboard/cashier/search', 'searchProduct')->name('cashier-searchProduct');
         Route::get('/dashboard/cashier/addTransaction', 'addTransaction')->name('cashier-addTransaction');
         Route::post('/dashboard/cashier/logout', 'logout')->name('cashier-logout');
+        Route::get('/dashboard/cashier/myTransaction', 'myTransaction')->name('cashier-myTransaction');
+        Route::get('/dashboard/cashier/myTransactionFilterDate', 'myTransactionFilterDate')->name('cashier-myTransactionFilterDate');
     });
 });

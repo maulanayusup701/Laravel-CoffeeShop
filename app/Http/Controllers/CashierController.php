@@ -72,16 +72,13 @@ class CashierController extends Controller
     public function addTransaction(Product $product)
     {
         $cart = session()->get('cart');
-
         $totalPrice = 0;
-
         $transaction = Transaction::create([
             'date_transaction' => now()->format('Y-m-d'),
             'user_id' => Auth::user()->id,
         ]);
 
         $transaction_id = $transaction->id;
-
         foreach ($cart as $id_product => $val) {
             $quantity = $val['quantity'];
 
@@ -93,7 +90,6 @@ class CashierController extends Controller
             ]);
 
             $productPrice = $product->find($id_product)->price;
-
             $totalPrice += $productPrice * $quantity;
         }
 
@@ -113,6 +109,28 @@ class CashierController extends Controller
         session()->forget('cart');
 
         return redirect('dashboard/cashier/cart')->with('success', 'Transaction successfully.');
+    }
+
+    public function myTransaction()
+    {
+        return view('dashboard.cashier.myTransaction.myTransaction', [
+            'title' => "My Transaction",
+            'myTransactions' => Transaction::where('user_id', Auth::user()->id)->paginate(15),
+        ]);
+    }
+
+    public function myTransactionFilterDate(Request $request)
+    {
+        $startDate = $request->start_date;
+        $endDate = $request->end_date;
+
+        $myTransactions = new Transaction();
+        $myTransactionFilterDate = $myTransactions->myTransactionFilterDate($startDate, $endDate);
+
+        return view('dashboard.cashier.myTransaction.myTransaction', [
+            'title' => "My Transaction",
+            'myTransactions' => $myTransactionFilterDate,
+        ]);
     }
 
     public function logout(Request $request)
