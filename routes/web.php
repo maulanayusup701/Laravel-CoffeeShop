@@ -6,6 +6,8 @@ use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CategoryProductController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUserManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,16 @@ Route::middleware(['IsManager'])->group(function () {
         Route::get('/dashboard/manager/transactionHistorySearch', 'transactionSearch')->name('manager-transactionSearch');
         Route::get('/dashboard/manager/transactionHistoryFilter', 'transactionFilter')->name('manager-transactionFilter');
         Route::get('/dashboard/manager/transactionHistoryFilterDate', 'transactionFilterDate')->name('manager-transactionFilterDate');
+        Route::resource('/dashboard/manager/categoryProduct', CategoryProductController::class);
+        Route::resource('/dashboard/manager/products', ProductsController::class);
     });
-    Route::resource('/dashboard/manager/categoryProduct', CategoryProductController::class);
-    Route::resource('/dashboard/manager/products', ProductsController::class);
+});
+
+Route::middleware(['IsAdmin'])->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/dashboard/admin', 'index');
+        Route::post('/dashboard/admin/logout','logout')->name('admin-logout');
+        Route::get('/dashboard/activity','activity')->name('admin-activity');
+    });
+    Route::resource('/dashboard/admin/userManagement', AdminUserManagementController::class);
 });

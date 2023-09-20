@@ -26,8 +26,22 @@
                             </div>
                         </div>
                     </a>
+                    @if(Auth::user()->position->position_name == 'Admin')
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
-                        style="min-width: 11rem">
+                    style="min-width: 11rem">
+                        <li>
+                            <form action="{{ route('admin-logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                    @elseif(Auth::user()->position->position_name == 'Manager')
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
+                    style="min-width: 11rem">
                         <li>
                             <form action="{{ route('manager-logout') }}" method="post">
                                 @csrf
@@ -38,6 +52,7 @@
                             </form>
                         </li>
                     </ul>
+                    @endif
                 </div>
             </div>
         </div>
