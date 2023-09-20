@@ -21,7 +21,6 @@
                     @endif
                     <h1 class="auth-title">Log in.</h1>
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
-
                     <form action="/loginStore" method="post">
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
@@ -62,6 +61,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
