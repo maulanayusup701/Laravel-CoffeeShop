@@ -12,8 +12,9 @@ return new class extends Migration {
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->date('date_transaction');
-            $table->string('total_price')->nullable();
+            $table->double('total_price')->nullable();
             $table->timestamps();
         });
     }
