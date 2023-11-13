@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('back-end/assets/css/pages/auth.css') }}">
-    <link rel="stylesheet" href="{{ asset('back-end/assets/css/main/app-dark.css') }}">
-    <link rel="stylesheet" href="{{ asset('back-end/assets/css/main/app.css') }}">
-    <link rel="shortcut icon" href="{{ asset('back-end/assets/images/logo/favicon.svg') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('back-end/assets/images/logo/favicon.svg') }}" type="image/png">
-
-    <link rel="stylesheet" href="{{ asset('back-end/assets/css/shared/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('back-end/assets/compiled/css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('back-end/assets/compiled/css/app-dark.css') }}">
+    <link rel="stylesheet" href="{{ asset('back-end/assets/compiled/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('back-end/assets/compiled/svg/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('back-end/assets/compiled/svg/favicon.svg') }}" type="image/png">
+    <link rel="stylesheet" href="{{ asset('back-end/assets/compiled/css/iconly.css') }}">
 
 </head>
 

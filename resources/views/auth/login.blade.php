@@ -5,7 +5,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="#"><img src="{{ asset('back-end/assets/images/logo/logo.svg') }}" alt="Logo"></a>
+                        <a href="#"><img src="{{ asset('back-end/assets/compiled/svg/logo.svg') }}" alt="Logo"></a>
                     </div>
                     @if (session('loginFailed'))
                         <div class="alert alert-danger alert-dismissible show fade">

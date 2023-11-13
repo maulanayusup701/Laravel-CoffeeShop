@@ -138,6 +138,6 @@ class CashierController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect()->route('login')->with('logout', 'You have successfully logged out.');
     }
 }

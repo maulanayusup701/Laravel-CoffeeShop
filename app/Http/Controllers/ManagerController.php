@@ -42,7 +42,7 @@ class ManagerController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('logout', 'You have successfully logged out.');
+        return redirect()->route('login')->with('logout', 'You have successfully logged out.');
     }
 
     public function activity()

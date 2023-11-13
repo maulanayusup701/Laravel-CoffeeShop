@@ -22,7 +22,7 @@ use App\Http\Controllers\CashierController;
 */
 Route::middleware(['guest'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
-        Route::get('/login', 'login')->name('login');
+        Route::get('/', 'login')->name('login');
         Route::post('/loginStore', 'store');
     });
 });
