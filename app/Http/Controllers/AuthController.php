@@ -33,7 +33,7 @@ class AuthController extends Controller
                 ];
 
                 ActivityHistory::create($activity);
-                return redirect()->intended('/dashboard/manager');
+                return redirect()->intended('/dashboard/manager')->with('toastr-success', 'Login Successfully');
             } elseif (Auth()->user()->position_id == 2) {
                 $request->session()->regenerate();
                 $user = Auth::user();
@@ -46,7 +46,7 @@ class AuthController extends Controller
                 ];
 
                 ActivityHistory::create($activity);
-                return redirect()->intended('/dashboard/admin');
+                return redirect()->intended('/dashboard/admin')->with('toastr-success', 'Login Successfully');
             } elseif (Auth()->user()->position_id == 3) {
                 $request->session()->regenerate();
                 $user = Auth::user();
@@ -59,11 +59,11 @@ class AuthController extends Controller
                 ];
 
                 ActivityHistory::create($activity);
-                return redirect()->intended('/dashboard/cashier');
+                return redirect()->intended('/dashboard/cashier')->with('toastr-success', 'Login Successfully');
             }
         }
         return redirect()
             ->back()
-            ->with('loginFailed', 'Incorrect Username or Password');
+            ->with('toastr-error', 'Incorrect Username or Password');
     }
 }

@@ -7,18 +7,6 @@
                     <div class="auth-logo">
                         <a href="#"><img src="{{ asset('back-end/assets/compiled/svg/logo.svg') }}" alt="Logo"></a>
                     </div>
-                    @if (session('loginFailed'))
-                        <div class="alert alert-danger alert-dismissible show fade">
-                            {{ session('loginFailed') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                    @if (session('logout'))
-                        <div class="alert alert-success alert-dismissible show fade">
-                            {{ session('logout') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
                     <h1 class="auth-title">Log in.</h1>
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
                     <form action="/loginStore" method="post">

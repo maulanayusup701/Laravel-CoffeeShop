@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="{{ asset('back-end/assets/compiled/svg/favicon.svg') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('back-end/assets/compiled/svg/favicon.svg') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('back-end/assets/compiled/css/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('back-end/assets/extensions/sweetalert2/sweetalert2.min.css') }}">
 
 </head>
 
