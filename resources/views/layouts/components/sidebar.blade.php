@@ -96,7 +96,7 @@
             <div class="sidebar-header position-relative">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="logo">
-                        <a href="/dashboard/manager"><img src="{{ asset('back-end/assets/compiled/svg/logo.svg') }}"
+                        <a href="/dashboard/admin"><img src="{{ asset('back-end/assets/compiled/svg/logo.svg') }}"
                                 alt="Logo" srcset="">
                         </a>
                     </div>
@@ -161,7 +161,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="/dashboard/manager"><img src="{{ asset('back-end/assets/compiled/svg/logo.svg') }}"
+                            <a href="/dashboard/cashier"><img src="{{ asset('back-end/assets/compiled/svg/logo.svg') }}"
                                     alt="Logo" srcset="">
                             </a>
                         </div>

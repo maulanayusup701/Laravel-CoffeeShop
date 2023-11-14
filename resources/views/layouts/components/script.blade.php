@@ -36,7 +36,6 @@
                 toast.addEventListener('mouseenter', Swal.stopTimer);
                 toast.addEventListener('mouseleave', Swal.resumeTimer);
             }
-            
         });
     </script>
 @endif
@@ -55,8 +54,18 @@
                 toast.addEventListener('mouseenter', Swal.stopTimer);
                 toast.addEventListener('mouseleave', Swal.resumeTimer);
             }
-            
         });
     </script>
 @endif
+
 </html>
+
+@if(session('success'))
+<script>
+    Swal2.fire({
+        icon: "success",
+        title: "success ",
+        text: "{{ session('success') }}",
+    })
+</script>
+@endif

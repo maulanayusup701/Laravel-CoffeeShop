@@ -11,13 +11,6 @@
                 <section class="row">
                     <div class="col-12">
                         <div class="card">
-                            @if (session('success'))
-                                <div class="alert alert-success alert-dismissible show fade">
-                                    {{ session('success') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                            @endif
                             <div class="card-header">
                                 <h4>Users Management</h4>
                             </div>
